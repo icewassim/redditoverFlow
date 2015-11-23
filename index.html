@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-app="reddit-camouflage">
+<div ng-view></div>
+
+<style type="text/css">
+
+
+	body{
+		margin: 0;
+		-webkit-box-sizing: border-box;
+	    	-moz-box-sizing: border-box;
+    		box-sizing: border-box;
+	}
+
+	.banner{
+		padding-left: 18%;
+		padding-right: 30%;
+		font-family: sans-serif;
+		background-color: black;
+		height: 35px;
+		font-size: 15px;
+	}
+
+
+	.overflow_container{
+		padding-left: 18%;
+		padding-right: 18%;
+	}
+
+	.subheader{
+		margin-top: 35px;
+	}
+
+	.sub_questions{
+		font-family: sans-serif;
+		float: right;
+	}
+
+	.sub_questions span{
+		padding: 4px 10px 5px;
+		font-size: 14px;
+		line-height: 1.3;
+		color: white;
+		background: #9EA3A9;
+	}
+
+	.sub_questions .orange{
+		background-color: #F69C55;
+	}
+
+	#reddit_overflow_logo{
+		font-size: 25px;
+		font-family: sans-serif;
+	}
+
+	#reddit_overflow_logo span b {
+		margin-left: -5px;
+	}
+
+
+	#reddit_camouflage_logo{
+		margin-left: 20px;
+		margin-top: 9px;
+		float: left;
+		color: white;
+	}
+
+	#reddit_camouflage_buttons{
+		color: #CFCFCF;
+		float: right;
+		margin-top: 9px;
+		margin-right: 50px;
+	}
+
+	#reddit_camouflage_buttons span{
+		margin-right: 5px;
+		font-size: 13px;
+	}
+
+	.banner input{
+		position: absolute;
+		right: 18%;
+		padding-left: 10px;
+		top: 7px;
+		border: none;
+		width: 200px;
+		height: 20px;
+	}
+
+	.camouflage{
+		font-weight: bold;
+		color: #4EA1C9;
+		margin-left: -5px;
+	}
+
+	#reddit_overflow_logo img{
+		height: 54px;
+		float: left;
+		margin-right: -10px;
+		margin-top: -14px;
+	}
+
+	.hint{
+		font-family: sans-serif;
+		font-size: 14px;
+		display: block;
+		height: 35px;
+		position: relative;
+		margin-top: 50px;
+		left: 0px;
+		background-color: #F7F7F7;
+		border: 1px solid #DBDBDB;
+		padding-top: 15px;
+		padding-left: 15px
+	}
+
+	.subPost{
+		margin-top: 20px;
+	}
+
+	.subPost_title{
+		font-family: sans-serif;
+		font-size: 24px;
+		line-height: 1.35;
+		font-weight: normal;	
+		margin-bottom: .5em;
+	}
+
+	.subPost_title input{
+		display: none;
+		width: 500px;
+		font-family: sans-serif;
+		font-size: 24px;
+		line-height: 1.35;
+		font-weight: normal;
+		margin-bottom: 0.5em;
+	}
+
+
+	hr{
+		border-color:#BCBCBC;
+		border-top: 3px;
+	}
+
+	.subContent{
+		width: 700px;
+		font-family: sans-serif;
+		display: block;
+		display: inline-block;
+		position: relative;
+	}
+
+	.subPost_title a{
+		border: none;
+		cursor: pointer;
+		display: none;
+		color: #FFF;
+		line-height: 1;
+		padding: 0.6em 0.8em;
+		background: #009AFD none repeat scroll 0% 0%;
+		transition: background 0.15s ease 0s, color 0.15s ease 0s;
+		border: 1px solid #1777B7;
+		box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3) inset, 0px 1px 1px rgba(100, 100, 100, 0.3);
+		border-radius: 3px;
+		line-height: 14px;
+		font-size: 12px;
+	}
+
+	.side_sub_reddits{
+		float: right;
+		font-family: sans-serif;
+		margin-left: 40px;
+		color: #444;
+	}
+
+
+	.subPost_info_line{
+		margin-bottom:10px;
+		font-size: 15px;
+	}
+
+	.subPost_info_line span{
+		color: grey;
+		width: 70px;
+		display: inline-block;
+	}
+
+
+	.subreddit_label_header{
+		font-weight: bold;
+		margin-bottom: 10px;
+		margin-top: 30px;
+		padding-top: 9px;
+		border-top: 1px solid #DBDBDB;
+	}
+
+	.subreddits a{
+		color: #07C;
+		display: block;
+		font-size: 13px;
+		width: 163px;
+		margin-bottom: 8px;
+	}
+
+
+
+	a{
+		color: #07C;
+		font-family: sans-serif;
+		text-decoration: none;
+	}
+
+
+	.subVotes{
+		display: inline-block;
+		float: left;
+		margin-top: 35px;
+		margin-right: 25px;
+		font-size: 20px;
+		font-family: sans-serif;
+		color: grey;
+		position: relative;
+	}
+
+	.subVotes img{
+		position: absolute;
+		height: 50px;
+		opacity: 0.5;
+	}
+
+	.arrow_up{
+		top: -50px;
+		left: 0px;
+	}
+	
+	.arrow_down{
+		top: 25px;
+		left: 0px;
+		-webkit-transform: rotateX(180deg);
+		-moz-transform:rotateX(180deg);
+		-transform:rotateX(180deg);
+		
+	}
+
+	.subDate
+	{
+		color: #07C;
+		display: block;
+		font-size: 13px;
+		float: right;
+		font-family: sans-serif;
+	}
+
+
+	.sub_tags {
+		font-size: 10px;
+		display: inline-block;
+		padding: 8px;
+		background: #E4EDF4 none repeat scroll 0% 0%;
+	}
+
+
+	.sub_tags_container{
+		font-size: 12px;
+		font-family: sans-serif;
+		margin-top: 5px;
+		float: left;
+	}
+
+
+	.fixed-container{
+		position: fixed;
+		width: 100%;
+		background-color: white;
+		z-index: 10;
+	}
+
+	.scrollable-container{
+		position: fixed;
+		width: 100%;
+		overflow: scroll;
+		height: 100%;
+		left: 18%;
+		top: 0;
+		padding-top: 240px;
+	}
+
+	.share_troll{
+		color: grey;
+	    font-family: sans-serif;
+	    font-size: 15px;
+	    margin-top: 5px;
+	    margin-left: 70px;
+	}
+
+	.subvote_trolls{
+		position: absolute;
+		top: 80px;
+		font-size: 12px;
+		padding-left: 25px;
+	}
+
+
+</style>
+<script src="jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="angular.min.js"></script>
+
+<script type="text/javascript">
+	
+var limit=3;
+var url='http://localhost/reddit/response.json';
+
+var app = angular.module('reddit-camouflage',[])
+  .config(['$routeProvider',
+    function($routeProvider){
+  $routeProvider.
+  when('/overflow', {
+    templateUrl:"overflow_template.html",
+    controller:'overflowController'   
+  }).
+  otherwise({redirectTo:'/overflow',
+});
+
+ function foo(data) {
+ 	console.log("hello");
+ }
+
+}]).controller('overflowController',function($scope, $routeParams){
+//	var url='http://localhost/response.json';
+	var url='https://www.reddit.com/.json?3jsonp=?'
+	$scope.posts=[];
+	if(localStorage.getItem("overflow_title"))
+		$scope.overflow_title=localStorage.getItem("overflow_title");
+	else
+		$scope.overflow_title="The Definitive C++ Book Guide and List";
+
+	$.get(url,{},function(response) {
+      var subRedditsArray=response.data.children;
+	   for (var i = 0; i < subRedditsArray.length; i++) {
+			$scope.posts.push({
+				title:subRedditsArray[i].data.title,
+				author:subRedditsArray[i].data.author,
+				subreddit:subRedditsArray[i].data.subreddit,
+				domain:subRedditsArray[i].data.domain,
+				permalink:subRedditsArray[i].data.permalink,
+				score:subRedditsArray[i].data.score,
+				type:subRedditsArray[i].data.post_hint,
+				thumbnail:{thumbnail_url:subRedditsArray[i].data.thumbnail,width:subRedditsArray[i].data.width,height:subRedditsArray[i].data.height},
+				time:timeDifference(subRedditsArray[i].data.created),
+				num_comments:subRedditsArray[i].data.num_comments,
+				selfText:subRedditsArray[i].data.selftext,
+				selfTextShort:subRedditsArray[i].data.selftext.substr(0, 500),
+				url:subRedditsArray[i].data.url});
+		}
+		$scope.$apply();
+    });
+
+
+	$scope.editTitle =function() {
+		console.log("edit title");
+		document.getElementById('subPost_title_content').style.display="none";
+		document.getElementById('subPost_title_content_input').style.display="initial";
+		document.getElementById('subPost_title_content_input').focus();
+	};
+
+	$scope.displayEdit =function() {
+		clearTimeout(hideTimeout);
+		document.getElementById("display_button").style.display="inline-block";
+	};
+
+	$scope.hideEdit =function() {
+		clearTimeout(hideTimeout);
+		hideTimeout=setTimeout(function(){document.getElementById("display_button").style.display="none";},1000);
+	};
+})
+var hideTimeout;
+
+function timeDifference(unix_timestamp) {
+	var previous = new Date(unix_timestamp*1000);
+    var current= new Date();
+    var msPerMinute = 60 * 1000;
+    var msPerHour = msPerMinute * 60;
+    var msPerDay = msPerHour * 24;
+    var msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    var elapsed = current - previous;
+
+    if (elapsed < msPerMinute) {
+         return Math.round(elapsed/1000) + ' seconds ago';   
+    }
+
+    else if (elapsed < msPerHour) {
+         return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+    }
+
+    else if (elapsed < msPerDay ) {
+         return Math.round(elapsed/msPerHour ) + ' hours ago';   
+    }
+
+    else if (elapsed < msPerMonth) {
+        return  Math.round(elapsed/msPerDay) + ' days ago';   
+    }
+
+    else if (elapsed < msPerYear) {
+        return  Math.round(elapsed/msPerMonth) + ' months ago';   
+    }
+
+    else {
+        return  Math.round(elapsed/msPerYear ) + ' years ago';   
+    }
+}
+
+</script>
+</body>
+</html>

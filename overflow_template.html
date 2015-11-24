@@ -72,9 +72,9 @@
 			</div>
 			<br>
 			<br>
-			<div style="color: grey;font-size:12px;margin-top:0px;">
-				submitted {{post.time}} by {{post.author}} 
-			</div>
+<!-- 			<div style="color: grey;font-size:12px;margin-top:0px;">
+				submitted by {{post.author}} 
+			</div> -->
 			<span id="sub_tags_container">
 				<span class="sub_tags" ng-show="post.type.length > 0" >{{post.type}}</span>
 				<span class="sub_tags">/r/{{post.subreddit}}</span>
@@ -84,7 +84,7 @@
 			<a href="{{post.url}}">
 				<img ng-src="{{post.thumbnail.thumbnail_url}}" ng-show="post.thumbnail.thumbnail_url!='self'" style="width:50px;margin-bottom: -5px;margin-top: -15px;">
 			</a>
-				<div class="subreddit">created {{post.time}}</div>
+				<div class="subreddit">Submitted by {{post.author}}</div>
 			</span>
 		</span>
 	</div>

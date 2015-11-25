@@ -67,8 +67,13 @@
 
 				({{post.domain}})
 			</span> 
-			<div style="color:grey;font-size:15px;white-space: pre-line;">
-				{{post.selfTextShort}}
+			<div style="color:grey;font-size:15px;white-space: pre-line;" ng-hide="post.expanded">
+				{{post.selfTextShort}} 
+				<a ng-show="post.selfText.length > 500"  style="opacity:0.5;cursor:pointer;" ng-click="expandSelfText(post)">... (show more)</a>
+			</div>
+
+			<div style="color:grey;font-size:15px;white-space: pre-line;" ng-click="compressSelftText(post)" ng-show="post.expanded">
+				{{post.selfText}}
 			</div>
 			<br>
 			<br>
@@ -82,9 +87,9 @@
 			</span>
 			<span class="subDate">
 			<a href="{{post.url}}">
-				<img ng-src="{{post.thumbnail.thumbnail_url}}" ng-show="post.thumbnail.thumbnail_url!='self'" style="width:50px;margin-bottom: -5px;margin-top: -15px;">
+				<img ng-src="{{post.thumbnail.thumbnail_url}}" ng-show="post.thumbnail.thumbnail_url!='self'" style="width:70px;margin-bottom: -5px;margin-top: -15px;">
 			</a>
-				<div class="subreddit">Submitted by {{post.author}}</div>
+				<div class="subreddit">{{post.author}}</div>
 			</span>
 		</span>
 	</div>

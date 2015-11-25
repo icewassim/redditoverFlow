@@ -37,6 +37,7 @@ var app = angular.module('reddit-camouflage',[])
 				num_comments:subRedditsArray[i].data.num_comments,
 				selfText:subRedditsArray[i].data.selftext,
 				selfTextShort:subRedditsArray[i].data.selftext.substr(0, 500),
+				expanded:false,
 				url:subRedditsArray[i].data.url});
 		}
 		$scope.$apply();
@@ -59,6 +60,15 @@ var app = angular.module('reddit-camouflage',[])
 		clearTimeout(hideTimeout);
 		hideTimeout=setTimeout(function(){document.getElementById("display_button").style.display="none";},1000);
 	};
+
+	$scope.compressSelftText =  function(post)
+	{
+		post.expanded =  false;
+	}
+
+	$scope.expandSelfText =  function (post) {
+		post.expanded = true;
+	}
 })
 var hideTimeout;
 

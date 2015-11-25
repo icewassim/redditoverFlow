@@ -3,11 +3,11 @@ var app = angular.module('reddit-camouflage',[])
     function($routeProvider){
   $routeProvider.
   when('/overflow', {
-    templateUrl:"overflow_template.html",
+    templateUrl:"templates/overflow_template.html",
     controller:'overflowController'   
   }).
   when('/post', {
-    templateUrl:"overflow_post_template.html",
+    templateUrl:"templates/overflow_post_template.html",
     controller:'overflowPostController'   
   }).
   otherwise({redirectTo:'/overflow',

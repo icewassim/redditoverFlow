@@ -12,11 +12,6 @@ var app = angular.module('reddit-camouflage',[])
   }).
   otherwise({redirectTo:'/overflow',
 });
-
- function foo(data) {
- 	console.log("hello");
- }
-
 }]).controller('overflowController',function($scope, $routeParams){
 	var url='https://www.reddit.com/.json?3jsonp=?'
 	$scope.posts=[];
@@ -94,8 +89,7 @@ var app = angular.module('reddit-camouflage',[])
 	  		score:postCommments[i].data.score
 	  	})
 	  };
-
-
+	  
       var subRedditsArray = response[0].data.children;
       for (var i = 0; i < subRedditsArray.length; i++) {
 			$scope.posts.push({
@@ -115,7 +109,6 @@ var app = angular.module('reddit-camouflage',[])
 		}
 	$scope.$apply();
     });
-
 
 	$scope.editTitle =function() {
 		console.log("edit title");

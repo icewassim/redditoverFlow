@@ -43,6 +43,26 @@
 			</span>
 		</span>
 	</div>
-</div>
-</span>
+
+
+	<!-- commments -->
+	<div class="subPost" ng-repeat="post in comments">
+		<br>
+		<hr style="opacity:0.5;margin-right: 35%;">
+		<span class="subVotes">
+			<img class="arrow_up"  src="pics/arrow_up.png">
+				{{post.score}}
+			<img class="arrow_down"src="pics/arrow_up.png">
+		</span>
+		<span class="subContent">
+			{{post.body}} 
+			<div style="color:grey;font-size:15px;white-space: pre-line;" >
+				{{post.body}} 
+			</div>
+			<span class="subDate">
+				<div class="subreddit">{{post.author}}</div>
+			</span>
+		</span>
+	</div>
+
 </div>

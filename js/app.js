@@ -74,16 +74,29 @@ var app = angular.module('reddit-camouflage',[])
 	}
 })
 .controller('overflowPostController',function($scope, $routeParams){
-	var url='https://www.reddit.com/.json?3jsonp=?'
-	$scope.posts=[];
+	var url='https://www.reddit.com/r/gifs/comments/3ub1il/my_way_is_quicker/.json?3jsonp=?'
+	$scope.posts = [];
+	$scope.comments = [];
 	if(localStorage.getItem("overflow_title"))
-		$scope.overflow_title=localStorage.getItem("overflow_title");
+		$scope.overflow_title = localStorage.getItem("overflow_title");
 	else
-		$scope.overflow_title="The Definitive C++ Book Guide and List";
+		$scope.overflow_title = "The Definitive C++ Book Guide and List";
 
 	$.get(url,{},function(response) {
-      var subRedditsArray=response.data.children;
-	   for (var i = 0; i < subRedditsArray.length; i++) {
+	  var postCommments = response[1].data.children;
+	  for (var i = 0; i < postCommments.length; i++) {
+	  	if(postCommments[i].data.author == "PM_ME_PAYPALMONEY")
+	  		console.log(postCommments[i].data);
+	  	$scope.comments.push({
+	  		author:postCommments[i].data.author,
+	  		body:postCommments[i].data.body,
+	  		score:postCommments[i].data.score
+	  	})
+	  };
+
+
+      var subRedditsArray = response[0].data.children;
+      for (var i = 0; i < subRedditsArray.length; i++) {
 			$scope.posts.push({
 				title:subRedditsArray[i].data.title,
 				author:subRedditsArray[i].data.author,
@@ -99,7 +112,7 @@ var app = angular.module('reddit-camouflage',[])
 				expanded:false,
 				url:subRedditsArray[i].data.url});
 		}
-		$scope.$apply();
+	$scope.$apply();
     });
 
 

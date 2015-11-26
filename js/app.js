@@ -74,6 +74,7 @@ var app = angular.module('reddit-camouflage',[])
 	}
 })
 .controller('overflowPostController',function($scope, $routeParams){
+	//ToDo  get reddit post from url params
 	var url='https://www.reddit.com/r/gifs/comments/3ub1il/my_way_is_quicker/.json?3jsonp=?'
 	$scope.posts = [];
 	$scope.comments = [];

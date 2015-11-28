@@ -116,7 +116,7 @@
 		font-family: sans-serif;
 		font-size: 24px;
 		line-height: 1.35;
-		font-weight: normal;	
+		font-weight: normal;
 		margin-bottom: .5em;
 	}
 
@@ -207,6 +207,8 @@
 
 	.subVotes{
 		display: inline-block;
+		width: 50px;
+		text-align: center;
 		float: left;
 		margin-top: 35px;
 		margin-right: 25px;
@@ -226,14 +228,14 @@
 		top: -50px;
 		left: 0px;
 	}
-	
+
 	.arrow_down{
 		top: 25px;
 		left: 0px;
 		-webkit-transform: rotateX(180deg);
 		-moz-transform:rotateX(180deg);
 		-transform:rotateX(180deg);
-		
+
 	}
 
 	.subDate
@@ -293,4 +295,3 @@
 		font-size: 12px;
 		padding-left: 25px;
 	}
-

@@ -21,8 +21,8 @@ var app = angular.module('reddit-camouflage',[])
 		$scope.overflow_title="The Definitive C++ Book Guide and List";
 
 	$.get(url,{},function(response) {
-      var subRedditsArray=response.data.children;
-	   for (var i = 0; i < subRedditsArray.length; i++) {
+	   	var subRedditsArray=response.data.children;
+		for (var i = 0; i < subRedditsArray.length; i++) {
 			$scope.posts.push({
 				title:subRedditsArray[i].data.title,
 				author:subRedditsArray[i].data.author,
@@ -110,24 +110,24 @@ var app = angular.module('reddit-camouflage',[])
 	$scope.$apply();
     });
 
-	$scope.editTitle =function() {
+	$scope.editTitle = function() {
 		console.log("edit title");
 		document.getElementById('subPost_title_content').style.display="none";
 		document.getElementById('subPost_title_content_input').style.display="initial";
 		document.getElementById('subPost_title_content_input').focus();
 	};
 
-	$scope.displayEdit =function() {
+	$scope.displayEdit = function() {
 		clearTimeout(hideTimeout);
 		document.getElementById("display_button").style.display="inline-block";
 	};
 
-	$scope.hideEdit =function() {
+	$scope.hideEdit = function() {
 		clearTimeout(hideTimeout);
 		hideTimeout=setTimeout(function(){document.getElementById("display_button").style.display="none";},1000);
 	};
 
-	$scope.compressSelftText =  function(post)
+	$scope.compressSelftText = function(post)
 	{
 		post.expanded =  false;
 	}

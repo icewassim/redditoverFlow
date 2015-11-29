@@ -58,17 +58,17 @@
 		<span class="subContent">
 			<!-- <br> -->
 			<!-- {{post.body}} <span style="color:grey;font-size:15px;white-space: pre-line;font-size:12px;" > (hours ago)</span> -->
-			<div style="font-size:15px;white-space: pre-line;" >
+			<div class="post-body" >
 				{{post.body}}
 			</div>
 			<span class="subDate">
-				<div class="subreddit">{{post.author}}</div>
+				<div class="subreddit" style="margin-top: -12px;">{{post.author}}</div>
 			</span>
 			<div class="replies-container">
-				<span class="reply">
+				<span class="reply" ng-repeat="reply in  post.replies">
 					<hr>
 					<span class="reply-content">
-						well done nigga
+						{{reply.content}}  {{reply.author}} 
 					</span>
 					<span class="reply-author">wiss</span>
 					<span class="reply-date"></span>

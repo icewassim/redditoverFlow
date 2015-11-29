@@ -218,6 +218,23 @@
 		position: relative;
 	}
 
+	.post-body{
+		font-size:15px;
+		white-space: pre-line;
+		min-height: 90px;
+	}
+	.reply{
+		font-size: 14px;
+	}
+
+	.reply hr{
+		opacity: 0.5;
+	}
+
+	.reply-content{
+		margin-left: 20px;
+	}
+
 	.subVotes img{
 		position: absolute;
 		height: 50px;

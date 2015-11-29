@@ -228,8 +228,17 @@
 	}
 
 	.reply hr{
+		opacity: 0.3;
+	}
+
+	.reply-score{
 		opacity: 0.5;
 	}
+
+	.author-reply{
+		color:  #07C;
+	}
+
 
 	.reply-content{
 		margin-left: 20px;
@@ -255,10 +264,16 @@
 
 	}
 
+	.comments-link{
+		text-decoration: none;
+		color: inherit;
+	}
+
 	.subDate
 	{
 		color: #07C;
 		display: block;
+		margin-top: 15px;
 		font-size: 13px;
 		float: right;
 		font-family: sans-serif;

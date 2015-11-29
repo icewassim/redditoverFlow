@@ -1,5 +1,5 @@
 <div class="scrollable-container">
-	
+
 	<div class="subPost" ng-repeat="post in posts">
 		<br>
 		<hr style="opacity:0.5;margin-right: 35%;">
@@ -8,17 +8,25 @@
 				{{post.score}}
 			<img class="arrow_down"src="pics/arrow_up.png">
 			<div class="subvote_trolls" >
-				<img src="http://scribbler.party/pictures/icons/small-comment-black.png" style="height: initial;margin-left:-20px;"> {{post.num_comments}} 
+				<a ng-show="post.domain"  class="comments-link"  href="#/comments/{{post.subreddit}}/{{post.postId}}">
+					<img src="http://scribbler.party/pictures/icons/small-comment-black.png" style="height: initial;margin-left:-20px;"> {{post.num_comments}}
+				</a>
 			</div>
 		</span>
 		<span class="subContent">
-			{{post.title}} 
-			<span style="color: #808080;font-size: 12px;">
+			<a ng-show="post.domain.indexOf('self') !=  -1" class="comments-link"  href="#/comments/{{post.subreddit}}/{{post.postId}}">
+				{{post.title}}
+			</a>
 
+			<a ng-hide="post.domain.indexOf('self') !=  -1"  class="comments-link" href="{{post.url}}">
+				{{post.title}}
+			</a>
+
+			<span style="color: #808080;font-size: 12px;">
 				({{post.domain}})
-			</span> 
+			</span>
 			<div style="color:grey;font-size:15px;white-space: pre-line;" ng-hide="post.expanded">
-				{{post.selfTextShort}} 
+				{{post.selfTextShort}}
 				<a ng-show="post.selfText.length > 500"  style="opacity:0.5;cursor:pointer;" ng-click="expandSelfText(post)">... (show more)</a>
 			</div>
 
@@ -26,10 +34,6 @@
 				{{post.selfText}}
 			</div>
 			<br>
-			<br>
-<!-- 			<div style="color: grey;font-size:12px;margin-top:0px;">
-				submitted by {{post.author}} 
-			</div> -->
 			<span id="sub_tags_container">
 				<span class="sub_tags" ng-show="post.type.length > 0" >{{post.type}}</span>
 				<span class="sub_tags">/r/{{post.subreddit}}</span>

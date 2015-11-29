@@ -2,19 +2,22 @@ var app = angular.module('reddit-camouflage',[])
   .config(['$routeProvider',
     function($routeProvider){
   $routeProvider.
-  when('/overflow', {
+  when('/r/:subreddit', {
     templateUrl:"templates/overflow_template.html",
     controller:'overflowController'
   }).
-  when('/post', {
+  when('/comments/:subreddit/:postId', {
     templateUrl:"templates/overflow_post_template.html",
     controller:'overflowPostController'
   }).
-  otherwise({redirectTo:'/overflow',
+  otherwise({redirectTo:'/r/front',
 });
 }]).controller('overflowController',function($scope, $routeParams){
-	var url='https://www.reddit.com/.json?3jsonp=?'
 	$scope.posts=[];
+  if($routeParams.subreddit === "front")
+    var url='https://www.reddit.com/.json?3jsonp=?';
+  else
+    var url='https://www.reddit.com/'+$routeParams.subreddit+'.json';
 
   if(localStorage.getItem("overflow_title"))
 		$scope.overflow_title=localStorage.getItem("overflow_title");
@@ -24,19 +27,20 @@ var app = angular.module('reddit-camouflage',[])
 	$.get(url,{},function(response) {
       $scope.posts = response.data.children.map(function (post) {
         return {
-          title:post.title,
-          author:post.author,
-          subreddit:post.subreddit,
-          domain:post.domain,
-          permalink:post.permalink,
-          score:post.score,
-          type:post.post_hint,
-          thumbnail:{thumbnail_url:post.thumbnail,width:post.width,height:post.height},
-          num_comments:post.num_comments,
-          selfText:post.selftext,
-          selfTextShort:post.selftext.substr(0, 500),
+          postId:post.data.id,
+          title:post.data.title,
+          author:post.data.author,
+          subreddit:post.data.subreddit,
+          domain:post.data.domain,
+          permalink:post.data.permalink,
+          score:post.data.score,
+          type:post.data.post_hint,
+          thumbnail:{thumbnail_url:post.data.thumbnail,width:post.data.width,height:post.data.height},
+          num_comments:post.data.num_comments,
+          selfText:post.data.selftext,
+          selfTextShort:post.data.selftext.substr(0, 500),
           expanded:false,
-          url:post.url
+          url:post.data.url
       };
     });
 		$scope.$apply();
@@ -72,7 +76,7 @@ var app = angular.module('reddit-camouflage',[])
 
 .controller('overflowPostController',function($scope, $routeParams){
 	//ToDo  get reddit post from url params
-	var url='https://www.reddit.com/r/AskReddit/comments/3unb5b/.json?3jsonp=?'
+	var url='https://www.reddit.com/r/'+$routeParams.subreddit+'/comments/'+$routeParams.postId+'/.json?3jsonp=?'
 	$scope.posts = [];
 	$scope.comments = [];
 	if(localStorage.getItem("overflow_title"))

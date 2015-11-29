@@ -17,7 +17,7 @@ var app = angular.module('reddit-camouflage',[])
   if($routeParams.subreddit === "front")
     var url='https://www.reddit.com/.json?3jsonp=?';
   else
-    var url='https://www.reddit.com/'+$routeParams.subreddit+'.json';
+    var url='https://www.reddit.com/r/'+$routeParams.subreddit+'.json';
 
   if(localStorage.getItem("overflow_title"))
 		$scope.overflow_title=localStorage.getItem("overflow_title");

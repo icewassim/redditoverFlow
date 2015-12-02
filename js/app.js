@@ -75,7 +75,7 @@ angular.module('reddit-camouflage',[])
 })
 
 .controller('overflowPostController',function($scope, $routeParams){
-	//ToDo  get reddit post from url params
+	
 	var url='https://www.reddit.com/r/'+$routeParams.subreddit+'/comments/'+$routeParams.postId+'/.json?3jsonp=?'
 	$scope.posts = [];
 	$scope.comments = [];

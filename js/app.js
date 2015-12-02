@@ -1,4 +1,4 @@
-var app = angular.module('reddit-camouflage',[])
+angular.module('reddit-camouflage',[])
   .config(['$routeProvider',
     function($routeProvider){
   $routeProvider.

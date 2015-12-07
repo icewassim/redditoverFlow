@@ -1,3 +1,9 @@
+<span class="side-list">
+	<div>ASked 5 days ago</div>
+	<div>ASked 5 days ago</div>
+	<div>ASked 5 days ago</div>
+</span>
+
 <div class="scrollable-container">
 
 	<div class="subPost" ng-repeat="post in posts">
@@ -68,13 +74,15 @@
 				<br>
 				<br>
 				<span class="reply" ng-repeat="reply in  post.replies">
-					<hr>
-					<div class="reply-content">
-						{{reply.content}} -  <span class="author-reply">{{reply.author}} </span>
-						<span class="reply-score">
-							{{reply.score}} point<span ng-show="reply.score > 1">s</span>
-						</span>
-					</div>
+					<span ng-show="reply.content.length > 0">					
+						<hr>
+						<div class="reply-content" 
+							<span class="reply-score">
+								{{reply.score}}
+							</span>
+							{{reply.content}} -  <span class="author-reply">{{reply.author}} </span>
+						</div>
+					</span>
 					<span class="reply-date"></span>
 				</span>
 			</div>

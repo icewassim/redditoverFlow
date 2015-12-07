@@ -225,7 +225,7 @@
 	}
 
 	.post-body{
-		font-size:15px;
+		font-size:17px;
 		white-space: pre-line;
 		min-height: 90px;
 	}
@@ -248,6 +248,7 @@
 
 	.reply-content{
 		margin-left: 20px;
+		font-size: 13px;
 	}
 
 	.subVotes img{

@@ -239,6 +239,8 @@
 
 	.reply-score{
 		opacity: 0.5;
+		color: grey;
+		margin-right: 15px;
 	}
 
 	.author-reply{
@@ -333,4 +335,8 @@
 		top: 80px;
 		font-size: 12px;
 		padding-left: 25px;
+	}
+	.sub-comment-votes{
+		color: grey;
+		margin-left: 15px;
 	}

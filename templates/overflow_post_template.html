@@ -76,9 +76,9 @@
 				<span class="reply" ng-repeat="reply in  post.replies">
 					<span ng-show="reply.content.length > 0">					
 						<hr>
-						<div class="reply-content" 
-							<span class="reply-score">
-								{{reply.score}}
+						<div class="reply-content" >
+							<span style="color:grey;margin-right:5px;">
+								{{reply.score}} -
 							</span>
 							{{reply.content}} -  <span class="author-reply">{{reply.author}} </span>
 						</div>

@@ -293,9 +293,13 @@
 		font-size: 10px;
 		display: inline-block;
 		padding: 8px;
+		color: black;
 		background: #E4EDF4 none repeat scroll 0% 0%;
 	}
 
+	.sub_tags a {
+		color: black;
+	}
 
 	.sub_tags_container{
 		font-size: 12px;

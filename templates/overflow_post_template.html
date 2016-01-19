@@ -38,7 +38,9 @@
 			</div> -->
 			<span id="sub_tags_container">
 				<span class="sub_tags" ng-show="post.type.length > 0" >{{post.type}}</span>
-				<span class="sub_tags">/r/{{post.subreddit}}</span>
+				<span class="sub_tags">
+					<a href="#/r/{{post.subreddit}}"> /r/{{post.subreddit}}</a>
+				</span>
 				<span class="sub_tags" ng-show="post.domain.length > 0 && post.domain.indexOf('self') !=  0">{{post.domain}}</span>
 			</span>
 			<span class="subDate">

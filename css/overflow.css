@@ -228,6 +228,7 @@
 		font-size:17px;
 		white-space: pre-line;
 		min-height: 90px;
+		margin-top: -20px;
 	}
 	.reply{
 		font-size: 14px;
@@ -343,4 +344,10 @@
 	.sub-comment-votes{
 		color: grey;
 		margin-left: 15px;
+	}
+
+	.thumbnails-preview {
+		position: absolute;
+		margin-top: -141px;
+		height: 200px;
 	}

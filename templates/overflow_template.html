@@ -41,10 +41,12 @@
 				</span>
 				<span class="sub_tags" ng-show="post.domain.length > 0 && post.domain.indexOf('self') !=  0">{{post.domain}}</span>
 			</span>
-			<span class="subDate">
-			<a href="{{post.url}}">
-				<img ng-src="{{post.thumbnail.thumbnail_url}}" ng-show="post.thumbnail.thumbnail_url!='self'" style="width:70px;margin-bottom: -5px;margin-top: -15px;">
-			</a>
+			
+			<span class="subDate" ng-mouseenter="expandHoveredContent(post)"  ng-mouseleave="hideHoveredContent(post)">
+				<a href="{{post.url}}">
+					<img ng-src="{{post.thumbnail.thumbnail_url}}" ng-show="post.thumbnail.thumbnail_url!='self'" style="width:70px;margin-bottom: -5px;margin-top: -15px;">
+				</a>
+				<img ng-src="{{post.thumbnail.thumbnail_url}}" class="thumbnails-preview" ng-show="post.showHovered">
 				<div class="subreddit">{{post.author}}</div>
 			</span>
 		</span>

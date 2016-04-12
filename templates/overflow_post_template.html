@@ -1,0 +1,93 @@
+<span class="side-list">
+	<div>ASked 5 days ago</div>
+	<div>ASked 5 days ago</div>
+	<div>ASked 5 days ago</div>
+</span>
+
+<div class="scrollable-container">
+
+	<div class="subPost" ng-repeat="post in posts">
+		<br>
+		<hr style="opacity:0.5;margin-right: 35%;">
+		<span class="subVotes">
+			<img class="arrow_up"  src="pics/arrow_up.png">
+				{{post.score}}
+			<img class="arrow_down"src="pics/arrow_up.png">
+			<div class="subvote_trolls" >
+				<img src="http://scribbler.party/pictures/icons/small-comment-black.png" style="height: initial;margin-left:-20px;"> {{post.num_comments}}
+			</div>
+		</span>
+		<span class="subContent">
+			{{post.title}}
+			<span style="color: #808080;font-size: 12px;">
+
+				({{post.domain}})
+			</span>
+			<div style="color:grey;font-size:15px;white-space: pre-line;" ng-hide="post.expanded">
+				{{post.selfTextShort}}
+				<a ng-show="post.selfText.length > 500"  style="opacity:0.5;cursor:pointer;" ng-click="expandSelfText(post)">... (show more)</a>
+			</div>
+
+			<div style="color:grey;font-size:15px;white-space: pre-line;" ng-click="compressSelftText(post)" ng-show="post.expanded">
+				{{post.selfText}}
+			</div>
+			<br>
+			<br>
+<!-- 			<div style="color: grey;font-size:12px;margin-top:0px;">
+				submitted by {{post.author}}
+			</div> -->
+			<span id="sub_tags_container">
+				<span class="sub_tags" ng-show="post.type.length > 0" >{{post.type}}</span>
+				<span class="sub_tags">
+					<a href="#/r/{{post.subreddit}}"> /r/{{post.subreddit}}</a>
+				</span>
+				<span class="sub_tags" ng-show="post.domain.length > 0 && post.domain.indexOf('self') !=  0">{{post.domain}}</span>
+			</span>
+			<span class="subDate">
+			<a href="{{post.url}}">
+				<img ng-src="{{post.thumbnail.thumbnail_url}}" ng-show="post.thumbnail.thumbnail_url!='self'" style="width:70px;margin-bottom: -5px;margin-top: -15px;">
+			</a>
+				<div class="subreddit">{{post.author}}</div>
+			</span>
+		</span>
+	</div>
+
+
+	<!-- commments -->
+	<div class="subPost" ng-repeat="post in comments">
+		<br>
+		<br>
+		<hr style="opacity:0.5;margin-right: 35%;">
+		<span class="subVotes">
+			<img class="arrow_up"  src="pics/arrow_up.png">
+				{{post.score}}
+			<img class="arrow_down"src="pics/arrow_up.png">
+		</span>
+		<span class="subContent">
+			<!-- <br> -->
+			<!-- {{post.body}} <span style="color:grey;font-size:15px;white-space: pre-line;font-size:12px;" > (hours ago)</span> -->
+			<div class="post-body" >
+				{{post.body}}
+			</div>
+			<span class="subDate">
+				<div class="subreddit" style="margin-top: -12px;">{{post.author}}</div>
+			</span>
+			<div class="replies-container">
+				<br>
+				<br>
+				<span class="reply" ng-repeat="reply in  post.replies">
+					<span ng-show="reply.content.length > 0">					
+						<hr>
+						<div class="reply-content" >
+							<span style="color:grey;margin-right:5px;">
+								{{reply.score}} -
+							</span>
+							{{reply.content}} -  <span class="author-reply">{{reply.author}} </span>
+						</div>
+					</span>
+					<span class="reply-date"></span>
+				</span>
+			</div>
+		</span>
+	</div>
+</div>

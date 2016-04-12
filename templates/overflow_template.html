@@ -1,0 +1,56 @@
+<div class="scrollable-container">
+
+	<div class="subPost" ng-repeat="post in posts">
+		<br>
+		<hr style="opacity:0.5;margin-right: 35%;">
+		<span class="subVotes">
+			<img class="arrow_up"  src="pics/arrow_up.png">
+				{{post.score}}
+			<img class="arrow_down"src="pics/arrow_up.png">
+			<div class="subvote_trolls" >
+				<a ng-show="post.domain"  class="comments-link"  href="#/comments/{{post.subreddit}}/{{post.postId}}">
+					<img src="http://scribbler.party/pictures/icons/small-comment-black.png" style="height: initial;margin-left:-20px;"> {{post.num_comments}}
+				</a>
+			</div>
+		</span>
+		<span class="subContent">
+			<a ng-show="post.domain.indexOf('self') !=  -1" class="comments-link"  href="#/comments/{{post.subreddit}}/{{post.postId}}">
+				{{post.title}}
+			</a>
+
+			<a ng-hide="post.domain.indexOf('self') !=  -1"  class="comments-link" href="{{post.url}}">
+				{{post.title}}
+			</a>
+
+			<span style="color: #808080;font-size: 12px;">
+				(/r/{{post.subreddit}})
+			</span>
+			<div style="color:grey;font-size:15px;white-space: pre-line;" ng-hide="post.expanded">
+				{{post.selfTextShort}}
+				<a ng-show="post.selfText.length > 500"  style="opacity:0.5;cursor:pointer;" ng-click="expandSelfText(post)">... (show more)</a>
+			</div>
+
+			<div style="color:grey;font-size:15px;white-space: pre-line;" ng-click="compressSelftText(post)" ng-show="post.expanded">
+				{{post.selfText}}
+			</div>
+			<br>
+			<span id="sub_tags_container">
+				<span class="sub_tags" ng-show="post.type.length > 0" >{{post.type}}</span>
+				<span class="sub_tags">
+					<a href="#/r/{{post.subreddit}}"> /r/{{post.subreddit}}</a>
+				</span>
+				<span class="sub_tags" ng-show="post.domain.length > 0 && post.domain.indexOf('self') !=  0">{{post.domain}}</span>
+			</span>
+			
+			<span class="subDate" ng-mouseenter="expandHoveredContent(post)"  ng-mouseleave="hideHoveredContent(post)">
+				<a href="{{post.url}}">
+					<img ng-src="{{post.thumbnail.thumbnail_url}}" ng-show="post.thumbnail.thumbnail_url!='self'" style="width:70px;margin-bottom: -5px;margin-top: -15px;">
+				</a>
+				<img ng-src="{{post.thumbnail.thumbnail_url}}" class="thumbnails-preview" ng-show="post.showHovered">
+				<div class="subreddit">{{post.author}}</div>
+			</span>
+		</span>
+	</div>
+</div>
+</span>
+</div>

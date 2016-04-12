@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body ng-app="reddit-camouflage">
+<div class="fixed-container">
+<div class="banner">
+	<span id="reddit_camouflage_logo">
+		<span >
+			Reddit
+		</span>
+		<span class="camouflage">Camouflage</span>
+	</span>
+	<span  id="reddit_camouflage_buttons">
+		<span>sign up</span>
+		<span>log in</span>
+		<span>tour</span>
+		<span>help</span>
+		<span>Reddit camouflage</span>
+	</span>
+
+	<input type="text" placeholder="search subreddit">
+</div>
+<div class="overflow_container">
+
+	<div class="subheader">
+		<span id="reddit_overflow_logo">
+			<img src="pics/reddit_overflow_logo.jpg">
+			<span>reddit</span>
+			<span><b>overflow</b></span>
+		</span>
+		<span class="sub_questions">
+			<span class="orange">
+					<a href="#/r/front">
+						Front Page
+					</a>
+			</span>
+			<span>
+				<a href="#/r/AskReddit">
+					Ask Reddit
+				</a>
+			</span>
+			<span>
+				<a href="#/r/IAmA">
+					IAmA
+				</a>
+			</span> 
+			<span>
+				<a href="#/r/worldnews">
+					worldnews
+				</a>
+			</span>
+			<span>
+				<a href="#/r/sports">
+					sports
+				</a>
+			</span>
+		</span>
+	</div>
+	<div class="hint"> Reddit overflow helps you browse reddit at work in camouflage mode</div>
+
+	<div class="subPost">
+		<span class="subPost_title" ng-mouseenter="displayEdit()" ng-mouseleave="hideEdit()">
+			<span id="subPost_title_content">The Definitive C++ Book Guide and List</span>
+			<a ng-click="editTitle()" id="display_button">Edit Title</a>
+			<input type="text" placeholder="{{overflow_title}}"  id="subPost_title_content_input">
+			<a ng-click="editTitle()" id="comfirm_button">save</a>
+		</span>
+	</div>
+
+</div>
+</div>
+<div ng-view></div>
+<link href="css/overflow.css" media="all" rel="stylesheet" />
+<script src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

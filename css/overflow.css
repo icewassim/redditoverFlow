@@ -17,8 +17,8 @@
 
 
 	.overflow_container{
-		padding-left: 18%;
-		padding-right: 18%;
+		padding-left: 23%;
+		padding-right: 25%;
 	}
 
 	.subheader{
@@ -319,9 +319,10 @@
 
 	.scrollable-container{
 		position: fixed;
-		width: 100%;
+		width: 80%;
 		overflow: scroll;
 		height: 100%;
+		padding-left: 110px;
 		left: 18%;
 		top: 0;
 		padding-top: 240px;

@@ -102,7 +102,7 @@ angular.module('reddit-camouflage',[])
     $scope.comments = response[1].data.children.map(function(comment) {
       return {
         author:comment.data.author,
-        body:comment.data.body_html,
+        body:comment.$sce.trustAsHtml(data.body_html),
         score:comment.data.score,
         replies:comment.data.replies ? comment.data.replies.data.children.map(function (reply) {
           return {

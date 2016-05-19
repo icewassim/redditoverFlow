@@ -12,7 +12,13 @@ angular.module('reddit-camouflage',[])
   }).
   otherwise({redirectTo:'/r/front',
 });
-}]).controller('overflowController',function($scope, $routeParams){
+}])
+.filter('to_trusted', ['$sce', function($sce){
+      return function(text) {
+          return $sce.trustAsHtml(text);
+      }
+ }])
+.controller('overflowController',function($scope, $routeParams){
 	$scope.posts=[];
   if($routeParams.subreddit === "front")
     var url='https://www.reddit.com/.json?3jsonp=?';
@@ -102,7 +108,7 @@ angular.module('reddit-camouflage',[])
     $scope.comments = response[1].data.children.map(function(comment) {
       return {
         author:comment.data.author,
-        body:comment.$sce.trustAsHtml(data.body_html),
+        body:comment.data.body,
         score:comment.data.score,
         replies:comment.data.replies ? comment.data.replies.data.children.map(function (reply) {
           return {

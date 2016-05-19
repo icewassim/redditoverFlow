@@ -67,7 +67,7 @@
 			<!-- <br> -->
 			<!-- {{post.body}} <span style="color:grey;font-size:15px;white-space: pre-line;font-size:12px;" > (hours ago)</span> -->
 			<div class="post-body" >
-				{{post.body}}
+				<span ng-bind-html="post.body | to_trusted"></span>
 			</div>
 			<span class="subDate">
 				<div class="subreddit" style="margin-top: -12px;">{{post.author}}</div>
@@ -76,7 +76,7 @@
 				<br>
 				<br>
 				<span class="reply" ng-repeat="reply in  post.replies">
-					<span ng-show="reply.content.length > 0">					
+					<span ng-show="reply.content.length > 0">
 						<hr>
 						<div class="reply-content" >
 							<span style="color:grey;margin-right:5px;">
